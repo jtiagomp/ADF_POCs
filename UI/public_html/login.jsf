@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="login.jsf" id="d1">
+        <af:form id="f1" defaultCommand="b1">
+            <div class="container">
+                <div class="card card-container">
+                    <af:image source="/resources/images/Oracle-logo.png" styleClass="profile-img-card" id="i1"/>
+                    <p id="profile-name" class="profile-name-card">LoginPage</p>
+                    <af:spacer width="5" height="5" id="s2"/>
+                    <af:panelGroupLayout id="pgl1" halign="center" layout="vertical">
+                        <af:inputText id="username" styleClass="form-control AFStretchWidth" placeholder="Username"
+                                      label="User Name" simple="true" value="#{LoginBean.userName}" required="true"/>
+                        <af:spacer width="5" height="5" id="s4"/>
+                        <af:inputText id="inputPassword" styleClass="form-control AFStretchWidth" placeholder="Password"
+                                      label="Password" secret="true" value="#{LoginBean.password}" required="true"
+                                      simple="true"/>
+                        <af:spacer width="5" height="5" id="s3"/>
+                        <af:separator id="s1"/>
+                        <af:button styleClass="btn-signin" text="Sign in" actionListener="#{LoginBean.doLogin}"
+                                   id="b1"/>
+                    </af:panelGroupLayout>
+                </div>
+                <!-- /card-container -->
+            </div>
+            <!-- /container -->
+        </af:form>
+    </af:document>
+</f:view>
