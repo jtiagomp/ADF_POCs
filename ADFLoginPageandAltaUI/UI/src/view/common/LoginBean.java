@@ -70,7 +70,7 @@ public class LoginBean implements Serializable{
             Subject sub = Authentication.login(handler);
             ServletAuthentication.runAs(sub, request);
             ServletAuthentication.generateNewSessionID(request);
-            String successUrl = "/adfAuthentication?success_url=/faces/console.jsf";
+            String successUrl = "/adfAuthentication?success_url=/faces/welcome.jsf";
             HttpServletResponse response = (HttpServletResponse) fctx.getExternalContext().getResponse();
             RequestDispatcher dispatcher = request.getRequestDispatcher(successUrl);
             dispatcher.forward(request, response);

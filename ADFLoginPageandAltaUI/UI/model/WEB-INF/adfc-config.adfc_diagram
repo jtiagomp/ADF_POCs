@@ -2,4 +2,19 @@
 <SDM>
    <OverallProperties
       id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">welcome</property>
+      <property
+         name="x">610.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>welcome&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">270.44824</property>
+      <property
+         name="page">/welcome.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
 </SDM>

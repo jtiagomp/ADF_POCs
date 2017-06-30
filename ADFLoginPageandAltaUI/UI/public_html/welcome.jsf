@@ -1,11 +1,51 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!--Copyright (c) 2014 Oracle and/or its affiliates. All rights reserved.-->
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="welcome.jsf" id="d1">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:trh="http://myfaces.apache.org/trinidad/html">
+    <af:document title="Work Better" id="d1" inlineStyle="height:auto;">
+        <af:messages id="m1"/>
         <af:form id="f1">
-        
-        Welcome Page
-        
+            <af:pageTemplate viewId="/oracle/templates/tabletFirstTemplate.jspx" id="pt1">
+                <f:facet name="header">
+                    <af:outputText value="Work Better" id="ot1"/>
+                </f:facet>
+                <f:facet name="status">
+                    <af:menuBar id="mb1">
+                        <af:menu text="#{SecurityContextAppSession.name}" id="m2">
+                            <af:commandMenuItem text="My Account" id="cmi1"></af:commandMenuItem>
+                            <af:commandMenuItem text="Sign Out" id="cmi2" action="#{LoginBean.onLogout}"/>
+                        </af:menu>
+                    </af:menuBar>
+                </f:facet>
+                <f:facet name="appNav">
+                    <af:button text="Home" id="welcomeMenuLink" partialSubmit="true" type="radio"
+                               selected="#{pageFlowScope.ConsoleManagedBean.taskFlowId eq '/WEB-INF/welcome-TF.xml#welcome-TF' ? true : false}"
+                               styleClass=" AFAppNavbarButton">
+                        <af:setPropertyListener from="/WEB-INF/welcome-TF.xml#welcome-TF"
+                                                to="#{NavigationBean.taskFlowId}" type="action"/>
+                    </af:button>
+                </f:facet>
+                <f:facet name="globalLinks"></f:facet>
+                <f:facet name="footer">
+                    <af:navigationPane hint="bar" id="np1"></af:navigationPane>
+                </f:facet>
+                <f:facet name="center">
+                    <!--   REGION  -->
+                    <!--lsa remove style class when tablet first template fixed-->
+                    <af:region value="#{bindings.dynamicRegion1.regionModel}"  styleClass="ContentContainerWorkaround" id="r1"/>
+                </f:facet>
+                <f:facet name="start"/>
+                <f:facet name="end"/>
+                <f:attribute name="endWidth" value="0px"/>
+                <f:attribute name="startWidth" value="0px"/>
+                <f:attribute name="showFooter" value="false"/>
+                <f:attribute name="logoImagePath" value="/resources/images/oracle_small200.png"/>
+            </af:pageTemplate>
         </af:form>
+        <f:facet name="metaContainer">
+            <trh:meta name="apple-mobile-web-app-capable" content="yes"/>
+            <trh:meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+        </f:facet>
     </af:document>
 </f:view>
