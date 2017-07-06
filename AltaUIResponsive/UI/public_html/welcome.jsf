@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
         xmlns:trh="http://myfaces.apache.org/trinidad/html">
-    <af:document title="welcome.jsf" id="d1">
+    <af:document title="welcome.jsf" id="d1" inlineStyle="height: auto;">
         <af:form id="f1">
             <af:pageTemplate viewId="/oracle/templates/tabletFirstTemplate.jspx" id="pt1">
                 <f:facet name="header">
@@ -11,7 +11,8 @@
                 <f:facet name="status">
                     <af:menuBar id="mb1">
                         <af:menu text="User Name" id="m2">
-                            <af:commandMenuItem text="My Account" id="cmi1"/>
+                            <af:commandMenuItem text="My Account" id="cmi1"
+                                                icon="/resources/images/naviBarFaces/navi_person_24_ena.png"/>
                             <af:group id="g1">
                                 <af:commandMenuItem text="logout" selected="false" id="cmi2"/>
                             </af:group>
@@ -20,18 +21,25 @@
                 </f:facet>
                 <f:facet name="appNav">
                     <af:panelGroupLayout layout="horizontal" styleClass="wide" id="pgl1">
-                        <af:button text="Dashboard" id="b1" styleClass="AFAppNavbarButton" selected="true" type="radio"
-                                   icon="/resources/images/naviBarFaces/navi_dashboard_24_ena.png"
-                                   hoverIcon="/resources/images/naviBarFaces/navi_dashboard_24_hov.png"
-                                   depressedIcon="/resources/images/naviBarFaces/navi_dashboard_24_act.png"/>
-                        <af:button text="People" id="b2" styleClass="AFAppNavbarButton" type="radio"
-                                   icon="/resources/images/naviBarFaces/navi_person_24_ena.png"
-                                   hoverIcon="/resources/images/naviBarFaces/navi_person_24_hov.png"
-                                   depressedIcon="/resources/images/naviBarFaces/navi_person_24_act.png"/>
-                        <af:button text="Organization" id="b3" styleClass="AFAppNavbarButton" type="radio"
+                        <af:button text="Home" id="b1" styleClass="AFAppNavbarButton" 
+                        selected="#{viewScope.NavigationBean.taskFlowId == '/WEB-INF/welcome-TF.xml#welcome-TF'}" 
+                        type="radio"
+                                   icon="/resources/images/naviBarFaces/navi_home_24_ena.png"
+                                   hoverIcon="/resources/images/naviBarFaces/navi_home_24_hov.png">
+                            <af:setPropertyListener from="/WEB-INF/welcome-TF.xml#welcome-TF"
+                                                    to="#{viewScope.NavigationBean.taskFlowId}" type="action"/>
+                        </af:button>
+                        <af:button text="Users" id="b2" styleClass="AFAppNavbarButton" type="radio"
+                        selected="#{viewScope.NavigationBean.taskFlowId == '/WEB-INF/Users-TF#Users-TF'}"
                                    icon="/resources/images/naviBarFaces/navi_people_24_ena.png"
-                                   hoverIcon="/resources/images/naviBarFaces/navi_people_24_hov.png"
-                                   depressedIcon="/resources/images/naviBarFaces/navi_people_24_act.png"/>
+                                   hoverIcon="/resources/images/naviBarFaces/navi_people_24_hov.png">
+                            <af:setPropertyListener from="/WEB-INF/Users-TF#Users-TF"
+                                                    to="#{viewScope.NavigationBean.taskFlowId}" type="action"/>
+                        </af:button>
+                        <af:button text="Projects" id="b3" styleClass="AFAppNavbarButton" type="radio" disabled="true"
+                        
+                                   icon="/resources/images/naviBarFaces/navi_projects_24_ena.png"
+                                   hoverIcon="/resources/images/naviBarFaces/navi_projects_24_hov.png"/>
                     </af:panelGroupLayout>
                     <af:panelGroupLayout layout="horizontal" styleClass="narrow" id="pgl2">
                         <af:menuBar id="mb2">
@@ -56,12 +64,17 @@
                         <af:commandNavigationItem id="ni5" text="Your Privacy Rights"/>
                     </af:navigationPane>
                 </f:facet>
-                <f:facet name="center"/>
+                <f:facet name="center">
+                    <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
+                               styleClass="ContentContainerWorkaround" inlineStyle="min-height: 400px;"/>
+                </f:facet>
                 <f:facet name="start"/>
                 <f:facet name="end"/>
+                <f:attribute name="endWidth" value="0px"/>
+                <f:attribute name="startWidth" value="0px"/>
                 <f:attribute name="logoImagePath" value="/resources/images/oracle_small200.png"/>
                 <f:attribute name="logoSmallImagePath" value="/resources/images/oracle_small200.png"/>
-                <f:attribute name="showFooter" value="true"/>
+                <f:attribute name="showFooter" value="false"/>
             </af:pageTemplate>
         </af:form>
         <f:facet name="metaContainer">

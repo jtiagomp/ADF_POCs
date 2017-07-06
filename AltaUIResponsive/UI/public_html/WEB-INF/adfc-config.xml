@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2"></adfc-config>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <method-call id="goTodefaultTF">
+    <method>#{viewScope.NavigationBean.defaultTF}</method>
+    <outcome>
+      <to-string/>
+    </outcome>
+  </method-call>
+  <control-flow-rule id="__2">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__3">
+      <from-outcome>index</from-outcome>
+      <to-activity-id>goTodefaultTF</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__1">
+    <managed-bean-name>NavigationBean</managed-bean-name>
+    <managed-bean-class>view.common.NavigationBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule2">
+      <property
+         name="activityId">*</property>
+      <property
+         name="x">430.0</property>
+      <property
+         name="y">205.29883</property>
+   </WildcardControlFlowRule>
+   <MethodCall
+      id="MethodCall3">
+      <property
+         name="activityId">goTodefaultTF</property>
+      <property
+         name="x">691.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>goTodefaultTF&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">230.59766</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="WildcardControlFlowRule2"
+      to="MethodCall3">
+      <property
+         name="fromOutcome">index</property>
+      <property
+         name="sdm:polyPoints">R50,466.0,205.44824,650.0,230.24707,L50</property>
+   </ControlFlowCase>
+</SDM>

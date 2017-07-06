@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:trh="http://myfaces.apache.org/trinidad/html">
+                 <af:panelStretchLayout id="psl" topHeight="auto">
+            <f:facet name="top">
+              <af:toolbox id="tbx">
+                <af:group id="g2">
+                  <af:menuBar id="mb1">
+                    <af:menu text="Actions" id="m1">
+                      <af:commandMenuItem text="New Action" id="cmi1"/>
+                    </af:menu>
+                    <af:menu text="Customer" id="m2">
+                      <af:commandMenuItem text="Customer1" id="cmi2"/>
+                    </af:menu>
+                  </af:menuBar>
+                  <af:toolbar id="tb1">
+                    <af:group id="g3">
+                      <af:button id="gms" text="Get More Services" disabled="true"/>
+                    </af:group>
+                    <af:group id="g4">
+                      <af:button id="ctblv" shortDesc="List view" icon="/resources/images/listview_ena.png"
+                                               hoverIcon="/resources/images/listview_ovr.png" disabled="true"
+                                               depressedIcon="/resources/images/listview_dwn.png"/>
+                      <af:button id="ctbdtv" shortDesc="Tabular view"
+                                               icon="/resources/images/view_as_table_ena.png"
+                                   hoverIcon="/resources/images/view_as_table_ovr.png"
+                                   depressedIcon="/resources/images/view_as_table_dwn.png" selected="true"/>
+                    </af:group>
+                  </af:toolbar>
+                </af:group>
+              </af:toolbox>
+            </f:facet>
+            <f:facet name="center">
+              <af:listView id="listView" var="item" varStatus="vs" 
+                           fetchSize="10" value="#{bindings.UsersVO.collectionModel}" selection="none" styleClass="lvNoSideBorders">
+                <af:listItem id="lvi">
+                  <trh:tableLayout id="pgrl" width="100%">
+                    <trh:rowLayout id="gr1">
+                      <trh:cellFormat id="gc2" rowSpan="4" valign="middle"
+                                      inlineStyle="min-width: 45px; padding-left:20px; padding-right:10px">
+                        <af:image source="#{item.UrlImage}"   styleClass="WBImage WBImageBorder" shortDesc="#{item.Name}" id="i2"/>
+                      </trh:cellFormat>
+                      <trh:cellFormat id="gc3" width="100%">
+                        <af:outputText id="outputText1" value="#{item.Name}" styleClass="cloudDesc"/>
+                      </trh:cellFormat>
+                      <trh:cellFormat id="gc4" rowSpan="4" valign="middle" width="100px" halign="end"
+                                      inlineStyle="padding-right:20px">
+                        <af:image id="i3"  source="/resources/images/actions.png"  shortDesc="Action"/>
+                      </trh:cellFormat>
+                    </trh:rowLayout>
+                    <trh:rowLayout id="gr2">
+                      <trh:cellFormat id="gc5">
+                        <af:outputText id="outputText2" value="#{item.Id}"/>
+                      </trh:cellFormat>
+                    </trh:rowLayout>
+                    <trh:rowLayout id="gr3">
+                      <trh:cellFormat id="gc6">
+                        <af:outputText id="outputText3" value="#{item.UserName}"/>
+                      </trh:cellFormat>
+                    </trh:rowLayout>
+                  </trh:tableLayout>
+                </af:listItem>
+              </af:listView>
+            </f:facet>
+          </af:panelStretchLayout>
+</ui:composition>

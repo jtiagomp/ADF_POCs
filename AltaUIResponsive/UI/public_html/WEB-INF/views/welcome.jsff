@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelHeader text="Welcome UserName" id="ph1">
+        <f:facet name="context"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+    </af:panelHeader>
+    <af:masonryLayout id="ml1">
+        <af:panelBox text="My Account" styleClass="AFMasonryTileSize1x1" id="pb1" showDisclosure="false"
+                     inlineStyle="min-width: 230px; min-height: 230px;">
+            <af:link id="l1" action="myaccount">
+                <?audit suppress oracle.jdeveloper.jsp.validate-children?>
+                <af:panelGroupLayout id="pgl10" halign="center" layout="vertical">
+                    <af:image id="me"
+                              source="/resources/images/organizations/90.png"
+                              styleClass="WBPersonImage"/>
+                </af:panelGroupLayout>
+            </af:link>
+        </af:panelBox>
+        <af:panelBox text="My Team" styleClass="AFMasonryTileSize1x1" id="pb3" showDisclosure="false"
+                     inlineStyle="min-width: 230px; min-height: 230px;">
+            <af:panelGridLayout id="pglbdgs">
+                <af:gridRow id="grbdgs1">
+                    <af:gridCell id="gcbdgs1" width="50%" halign="stretch">
+                        <af:panelGroupLayout id="pgltm1" halign="center" layout="vertical">
+                            <af:image source="/resources/images/qual_mygroup_70.png" shortDesc="My Group"
+                                      styleClass="WBDashboardCardIcon" id="i1"/>
+                            <af:outputText id="groupBadge" value="30" styleClass="WBDashboardCardBadge"/>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                    <af:gridCell id="gcbdgs2" width="50%" halign="stretch">
+                        <af:panelGroupLayout id="pgltm2" halign="center" layout="vertical">
+                            <af:image source="/resources/images/qual_myorg_70.png" styleClass="WBDashboardCardIcon"
+                                      shortDesc="My Directs" id="i2"/>
+                            <af:outputText id="directBadge" value="20" styleClass="WBDashboardCardBadge"/>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow id="grbdgs2" marginTop="10px">
+                    <af:gridCell id="gcbdgs3" halign="center">
+                        <af:outputText id="groupLbl" value="My Group" styleClass="WBDashboardLabel"/>
+                    </af:gridCell>
+                    <af:gridCell id="gcbdgs4" halign="center">
+                        <af:outputText id="directLbl" value="My Directs" styleClass="WBDashboardLabel"/>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+            <af:componentDragSource/>
+        </af:panelBox>
+        <af:panelBox text="My Projects" styleClass="AFMasonryTileSize1x1" id="pb4" showDisclosure="false"
+                     inlineStyle="min-width: 230px; min-height: 230px;">
+            <af:listView id="lv2" emptyText="">
+                <f:facet name="groupHeaderStamp"/>
+            </af:listView>
+        </af:panelBox>
+        <af:panelBox text="My tasks" styleClass="AFMasonryTileSize1x1" id="pb2" showDisclosure="false"
+                     inlineStyle="min-width: 230px; min-height: 230px;">
+            <af:listView id="lv1">
+                <f:facet name="groupHeaderStamp"/>
+            </af:listView>
+        </af:panelBox>
+    </af:masonryLayout>
+</ui:composition>
