@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+  <skin>
+    <id>appSkin.desktop</id>
+    <family>appSkin</family>
+    <extends>alta-v1.desktop</extends>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <style-sheet-name>resources/css/appSkin.css</style-sheet-name>
+  </skin>
+</skins>

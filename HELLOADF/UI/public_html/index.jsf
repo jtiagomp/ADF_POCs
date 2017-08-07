@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="index.jsf" id="d1">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1">
+                <f:facet name="header">
+                    <af:outputText value="App Name"  id="ot1"/>
+                </f:facet>
+                <f:facet name="status">
+                    <af:menuBar id="mb1">
+                        <af:menu text="User" id="m2">
+                            <af:commandMenuItem text="Sign Out" id="cmi2" action="#{LoginBean.onLogout}"/>
+                        </af:menu>
+                    </af:menuBar>
+                </f:facet>
+                <f:facet name="appNav">
+                    <af:panelGroupLayout id="pgl1">
+                        <af:button text="Home" id="b1">
+                         <af:setPropertyListener from="/WEB-INF/welcome-task-flow.xml#welcome-task-flow"
+                                                            to="#{viewScope.NavigationBean.taskFlowId}"
+                                                            type="action"/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="globalLinks"/>
+                <f:facet name="footer"/>
+                <f:facet name="center">
+                    <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"/>
+                </f:facet>
+                <f:facet name="start"/>
+                <f:facet name="end"/>
+                <f:attribute name="showFooter" value="false"/>
+                <f:attribute name="endWidth" value="0"/>
+                <f:attribute name="startWidth" value="0"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>
