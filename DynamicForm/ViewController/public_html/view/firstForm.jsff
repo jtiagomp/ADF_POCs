@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout id="pgl1" layout="horizontal">
+        <af:panelGroupLayout id="pgl2" halign="start" layout="vertical">
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:button text="add Elem" id="b1" actionListener="#{pageFlowScope.FirstFormMB.addElementAL}"/>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:panelGroupLayout id="pgDynForml3" partialTriggers="b1 t1">
+                <af:table var="row" value="#{pageFlowScope.FirstFormMB.dynForm}" rowBandingInterval="0" id="t1"
+                          inlineStyle="border: transparent; background-color: transparent;" scrollPolicy="page"
+                          columnStretching="multiple" partialTriggers="b2"
+                          styleClass="AFStretchWidth tableNoColumnHeaders">
+                    <af:column sortable="false" headerText="col1" id="c1" width="35%">
+                        <af:outputText value="FIELD:::::::::::::    #{row.id}" id="ot1"/>
+                    </af:column>
+                    <af:column sortable="false" headerText="col2" id="c2" width="35%">
+                        <af:selectOneChoice label="Header #{row.id}" id="soc2">
+                            <f:selectItems value="#{row.parameterLOV}" id="si1#{item.id}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortable="false" headerText="col2" width="30%" id="c3">
+                        <af:button text="remove Elem" id="b2" partialSubmit="true"
+                                   actionListener="#{pageFlowScope.FirstFormMB.delElementAL}">
+                            <f:attribute name="index" value="#{row}"/>
+                        </af:button>
+                    </af:column>
+                </af:table>
+            </af:panelGroupLayout>
+        </af:panelGroupLayout>
+    </af:panelGroupLayout>
+</ui:composition>

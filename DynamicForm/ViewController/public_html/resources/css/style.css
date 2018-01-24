@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+
+.tableNoColumnHeaders af|column::column-header-cell {
+    display: none;
+}
+.tableNoColumnHeaders af|column::data-cell {
+    background-color: transparent;
+    border-color: transparent;
+}
+.tableNoColumnHeaders af|table {
+    border: transparent;
+}
+.tableNoColumnHeaders af|column::detail-cell {
+    border-color: Green;
+}
