@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:treeTable value="#{pageFlowScope.DynTreeTableMB.dynTreeTable}" var="var" rowBandingInterval="0" id="tt1"  >
+        <f:facet name="nodeStamp">
+            <af:column sortable="false" headerText="Name" id="c2" width="20%">
+                <af:outputText value="#{var.name}" id="ot2"/>
+            </af:column>
+        </f:facet>
+        <af:column sortable="false" headerText="Type" id="c3" width="40%">
+            <af:outputText id="it1" value="#{var.type eq 'COMPLEX' ? var.value : var.type.name}" />
+        </af:column>
+        <af:column sortable="false" headerText="Value" id="c4" width="40%">
+            <af:switcher facetName="#{var.type}" id="s2">
+                <f:facet name="STRING">
+                    <af:inputText label="Label" id="it3" value="#{var.value}" simple="true"/>
+                </f:facet>
+                <f:facet name="DATE">
+                    <af:inputDate value="#{var.value}" id="ot4"/>
+                </f:facet>
+            </af:switcher>
+        </af:column>
+    </af:treeTable>
+    <af:button text="Submit" id="b1" actionListener="#{pageFlowScope.DynTreeTableMB.SubmitValuesAL}"/>
+    </af:panelGroupLayout>
+</ui:composition>
